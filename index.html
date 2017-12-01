@@ -89,7 +89,14 @@
       });
 
       QUnit.test("first entry tests", function (assert) {
-        assert.ok(false);
+          var listeContact = $('table tbody tr td');
+          assert.equal(listeContact[0].innerText,"Eric");
+          assert.equal(listeContact[1].innerText,"RAMAT");
+          assert.equal(listeContact[2].innerText.split('/')[0].split('[')[0],"0616642258");
+          assert.equal(listeContact[2].innerText.split('/')[1].split('[')[0],"0321465676");
+          assert.equal(listeContact[3].innerText.split('/')[0].split('[')[0],"ramat@lisic.univ-littoral.fr");
+          assert.equal(listeContact[3].innerText.split('/')[1].split('[')[0],"eric.ramat@gmail.com");
+          assert.equal(listeContact[4].innerText,"prof");
       });
 
       QUnit.test("remove contact tests", function (assert) {
