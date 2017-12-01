@@ -109,7 +109,24 @@
       });
 
       QUnit.test("sort contact tests", function (assert) {
-        
+          var contact = Contact.Contacts.instance();
+          var iterator = contact.iterator();
+          var listeSort = [];
+          var button = $('#button_sort');
+          button[0].click();
+          var listeContact = $('table tbody tr td');
+          var i = 0;
+          while(iterator.hasNext()){
+              contact = iterator.next();
+              listeSort[i] = contact.lastName();
+              i = i +1;
+          }
+          listeSort.sort();
+          var j = 1;
+          for(var k = 0; k < listeSort.length; k++){
+              assert.equal(listeSort[k], listeContact[j].innerText);
+              j = j + 6 ;
+          }
       });
     </script>
     <!-- END - Les tests -->
